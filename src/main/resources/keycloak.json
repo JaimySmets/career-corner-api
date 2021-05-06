@@ -1,0 +1,39 @@
+{
+  "policy-enforcer": {
+    "user-managed-access" : {},
+    "enforcement-mode" : "ENFORCING",
+    "paths": [
+      {
+        "name" : "Read objectives",
+        "path" : "/objectives/*",
+        "methods" : [
+          {
+            "method": "GET",
+            "scopes" : ["urn:app.com:scopes:view"]
+          },
+          {
+            "method": "POST",
+            "scopes" : ["urn:app.com:scopes:create"]
+          }
+        ]
+      },
+      {
+        "name" : "Some Resource",
+        "path" : "/usingPattern/{id}",
+        "methods" : [
+          {
+            "method": "DELETE",
+            "scopes" : ["urn:app.com:scopes:delete"]
+          }
+        ]
+      },
+      {
+        "path" : "/exactMatch"
+      },
+      {
+        "name" : "Admin Resources",
+        "path" : "/usingWildCards/*"
+      }
+    ]
+  }
+}
